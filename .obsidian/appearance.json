@@ -1,0 +1,9 @@
+{
+  "cssTheme": "OLED.Black",
+  "theme": "obsidian",
+  "textFontFamily": "IBM Plex Serif",
+  "accentColor": "#bababa",
+  "baseFontSize": 20,
+  "monospaceFontFamily": "IBM Plex Mono",
+  "interfaceFontFamily": "IBM Plex Sans Condensed"
+}
