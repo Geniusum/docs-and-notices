@@ -3,10 +3,6 @@
 > **"N’oubliez pas que le code n’est que le langage dans lequel nous exprimons finalement les exigences. Nous pouvons créer des langages plus proches des exigences. Nous pouvons créer des outils qui nous aident à analyser et à assembler ces exigences en structures formelles. Mais nous n’enlèverons jamais une précision nécessaire. Par conséquent, il y aura toujours du code."**
 > *Robert C. Martin, Coder proprement*
 
-Voici la correction de votre texte en conservant la mise en forme Markdown originale (italiques, gras, etc.) :
-
----
-
 *Quoi ? Un langage de plus ?* Et bien oui, un langage de plus... Mais celui-ci n'est pas fait n'importe comment et n'est pas destiné à tout usage. MazeGroup essaie de son mieux de créer des logiciels complets et maintenables. Jusqu'à présent, nous utilisions nos bons vieux langages que sont Python, PHP et JavaScript. Parfois, nous nous aventurions dans le bas niveau avec du C++. Cependant, il est temps de changer nos habitudes et de nous spécialiser dans un autre univers : celui de l'ingénierie à la MazeGroup.
 
 Ce document n'est pas censé traiter du modèle formel de MazeGroup, qui vise à uniformiser notre expertise pour améliorer notre façon de travailler. Mais le langage de programmation Pimo, bien que créé avant le lancement officiel de cette réforme, fait, entre autres, partie des solutions qui nous sont proposées.
