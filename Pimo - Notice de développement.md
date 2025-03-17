@@ -11,11 +11,13 @@ Pimo, dont le compilateur a été écrit en Python, est construit sur des bases 
 
 Ce langage se doit d'être expressif et complet (en commençant par être *Turing-complet*), et ce, dans l'intérêt de MazeGroup. Ce document n'a pas pour but de vous exposer les lignes directrices du projet, les valeurs du langage ou ses domaines d'excellence attendus. Tout cela vous sera expliqué par moi une fois que vous aurez appris à apprivoiser et à contribuer au compilateur, c'est-à-dire après avoir lu ce document dans son intégralité. Ce ne sera sûrement pas très compliqué (en tout cas, je l'espère pour vous). Il s'agit surtout de ne pas se dire : *Mais qu'est-ce qu'une seule personne aurait pu créer comme désastre en un peu plus d'un mois ? À quoi m'attendre ?* Pas de panique, ce n'est pas aussi brouillon que mes schémas initiaux ou mes langages de test, dont je vous épargne les détails pour ne pas vous déstabiliser.
 
-*Quid de l'état actuel du langage ?* Il se porte plutôt bien, du moins à première vue ou lors des premiers tests simples. Par exemple, une fonction `main` retournant `5 + 4` est un programme assez fonctionnel pour un compilateur écrit en Python. Mais attention : ne laissez pas le programme intégrer des conditions, des boucles ou d'autres éléments essentiels, car les choses pourraient se compliquer. Bien sûr, puisque vous êtes chez MazeGroup, cela signifie que vous savez réagir à une telle situation : tenter de toutes vos forces de résoudre les problèmes un par un. Cependant, ce n'est pas si simple ! Pour ma part, résoudre un problème à un endroit déclenchait (ou redéclenchait) un problème ailleurs, en plus de me faire passer plusieurs heures, voire plusieurs jours, dessus. Et n'oublions pas que le langage doit être multiplateforme, mais ce problème sera sûrement résolu avec un simple conteneur Docker.
+*Quid de l'état actuel du langage ?* Il se porte plutôt bien, du moins à première vue ou lors des premiers tests simples. Par exemple, une fonction `main` retournant `5 + 4` est un programme assez fonctionnel pour un compilateur écrit en Python. Mais attention : ne laissez pas le programme intégrer des conditions, des boucles ou d'autres éléments essentiels, car les choses pourraient se compliquer. Bien sûr, puisque vous êtes chez MazeGroup, cela signifie que vous savez réagir à une telle situation : tenter de toutes vos forces de résoudre les problèmes un par un. Cependant, ce n'est pas si simple ! Pour ma part, résoudre un problème à un endroit déclenchait (ou re-déclenchait) un problème ailleurs, en plus de me faire passer plusieurs heures, voire plusieurs jours, dessus. Et n'oublions pas que le langage doit être multiplateforme, mais ce problème sera sûrement résolu avec un simple conteneur Docker.
 
 Ce document n'a pas pour but de vous apprendre le langage Pimo, en tout cas pas directement.
 
 Si vous parvenez à voir le potentiel de ce langage et la flexibilité qu'il pourrait offrir, vous pourrez lire cette documentation assez facilement, non pas parce que vous comprendrez tout immédiatement, mais parce que vous anticiperez déjà la suite en la lisant.
+
+Mon but dans ce document — si vous ne l'avez pas encore compris — est de vous donner les clés pour vous permettre de contribuer au code de Pimo et par conséquent exploiter son potentiel dont je vous parlais juste avant.
 
 > **"De quel désert est entouré le génie !"**
 > *Friedrich Nietzsche*
@@ -48,4 +50,24 @@ Voilà donc l'environnement Python installé.
 
 ## Premier script Pimo
 
-Dans le répertoire `tests/` se trouvent tout les tests de script Pimo. Il se peut qu'il y ait des fichiers binaires, ils ne sont pas ignoré par le fichier `.gitignore`. Les fichiers sources Pimo terminent par l'extension `.pim`, le compilateur donnera une erreur de type `InvalidFileExtension` si ce n'est pas le cas lors de la compilation. 
+Dans le répertoire `tests/` se trouvent tout les tests de script Pimo. Il se peut qu'il y ait des fichiers binaires, ils ne sont pas ignoré par le fichier `.gitignore`. Les fichiers sources Pimo terminent par l'extension `.pim`, le compilateur donnera une erreur de type `InvalidFileExtension` si ce n'est pas le cas lors de la compilation.
+
+Créez (dans ce répertoire `tests/`) donc un fichier du nom de votre choix : par exemple `foo.pim` et remplissez le de ce code source :
+```pimo
+func byte main() {
+	return 80;
+}
+```
+Puis compilez et exécutez ce code source avec cette commande :
+```shell
+./pimo tests/foo.pim -r -e -c -sl
+```
+La sortie est censé être :
+```
+》[ERROR] Exception during the output execution : Command '"./tests/foo"' returned non-zero exit status 80.
+```
+Si c'est le cas, Pimo fonctionne sur votre machine !
+
+Pour la faire simple et courte, on crée un programme qui possède une fonction principale, cette dernière va retourner l'octet 80 en tant que code de sortie, d'où l'erreur d'exécution du compilateur.
+
+## Utiliser le compilateur
