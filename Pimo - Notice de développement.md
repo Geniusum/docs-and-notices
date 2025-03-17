@@ -72,4 +72,18 @@ Pour la faire simple et courte, on crée un programme qui possède une fonction 
 
 ### Utiliser le compilateur
 
-Vous l'aurez donc compris, `./pimo` est la commande du compilateur. De fait, savoir l'utiliser dans son entièreté est déjà un grand fondement. Nous parlerons 
+Vous l'aurez donc compris : `./pimo` est la commande du compilateur. De fait, savoir l'utiliser dans son entièreté est déjà un grand fondement. Nous parlerons plus tard du comment il marche, pour l'instant intéressons nous à comment l'utiliser.
+
+Tout d'abord, la commande nécessite un argument obligatoire étant le chemin d'accès du code source. Le reste de la commande ne sera que des options.
+
+Voici quelques options importantes à s'avoir utiliser :
+- `-r` `--replace` pour remplacer les fichiers binaires, objets et autres fichiers générés ;
+- `-o` `--output` pour choisir le fichier binaire de sortie ;
+- `-sl` `--silent` pour n'avoir que les informations nécessaire lors de l'exécution du compilateur (ex. les erreurs) ;
+- `-c` `--chmod` `--change-mod` pour changer le mode du fichier binaire (sous Linux), n'est pas souvent nécessaire ;
+- `-e` `--execute` pour exécuter le programme immédiatement après la compilation ;
+- `-opt` `--optimize` pour optimiser la représentation intermédiaire, parfois nécessaire pour éviter les erreurs de segmentation ;
+- `-t` `--timer` pour afficher le temps d'exécution de la commande du compilateur ;
+- `-kll` `--keep-llvm` pour garder la représentation intermédiaire ;
+- `-ko` `--keep-obj` pour garder le fichier objet.
+D'autres options seront peut-être mentionnés par la suite dans ce document. Pour afficher toutes les options possibles, faites `./pimo -h`.
