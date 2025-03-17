@@ -13,8 +13,6 @@ Ce langage se doit d'être expressif et complet (en commençant par être *Turin
 
 *Quid de l'état actuel du langage ?* Il se porte plutôt bien, du moins à première vue ou lors des premiers tests simples. Par exemple, une fonction `main` retournant `5 + 4` est un programme assez fonctionnel pour un compilateur écrit en Python. Mais attention : ne laissez pas le programme intégrer des conditions, des boucles ou d'autres éléments essentiels, car les choses pourraient se compliquer. Bien sûr, puisque vous êtes chez MazeGroup, cela signifie que vous savez réagir à une telle situation : tenter de toutes vos forces de résoudre les problèmes un par un. Cependant, ce n'est pas si simple ! Pour ma part, résoudre un problème à un endroit déclenchait (ou re-déclenchait) un problème ailleurs, en plus de me faire passer plusieurs heures, voire plusieurs jours, dessus. Et n'oublions pas que le langage doit être multiplateforme, mais ce problème sera sûrement résolu avec un simple conteneur Docker.
 
-Ce document n'a pas pour but de vous apprendre le langage Pimo, en tout cas pas directement.
-
 Si vous parvenez à voir le potentiel de ce langage et la flexibilité qu'il pourrait offrir, vous pourrez lire cette documentation assez facilement, non pas parce que vous comprendrez tout immédiatement, mais parce que vous anticiperez déjà la suite en la lisant.
 
 Mon but dans ce document — si vous ne l'avez pas encore compris — est de vous donner les clés pour vous permettre de contribuer au code de Pimo et par conséquent exploiter son potentiel dont je vous parlais juste avant.
@@ -48,7 +46,9 @@ pimo: error: the following arguments are required: sourcecode
 
 Voilà donc l'environnement Python installé.
 
-## Premier script Pimo
+## Apprivoiser Pimo
+
+### Premier script Pimo
 
 Dans le répertoire `tests/` se trouvent tout les tests de script Pimo. Il se peut qu'il y ait des fichiers binaires, ils ne sont pas ignoré par le fichier `.gitignore`. Les fichiers sources Pimo terminent par l'extension `.pim`, le compilateur donnera une erreur de type `InvalidFileExtension` si ce n'est pas le cas lors de la compilation.
 
@@ -68,6 +68,8 @@ La sortie est censé être :
 ```
 Si c'est le cas, Pimo fonctionne sur votre machine !
 
-Pour la faire simple et courte, on crée un programme qui possède une fonction principale, cette dernière va retourner l'octet 80 en tant que code de sortie, d'où l'erreur d'exécution du compilateur.
+Pour la faire simple et courte, on crée un programme qui possède une fonction principale, cette dernière va retourner l'octet 80 en tant que code de sortie, d'où l'erreur d'exécution du compilateur. Nous parlerons davantage du langage et du compilateur par la suite.
 
-## Utiliser le compilateur
+### Utiliser le compilateur
+
+Vous l'aurez donc compris, `./pimo` est la commande du compilateur. De fait, savoir l'utiliser dans son entièreté est déjà un grand fondement. Nous parlerons 
